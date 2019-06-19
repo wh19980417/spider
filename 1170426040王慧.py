@@ -1,11 +1,6 @@
-def toFullPath(sub,parent):
-    if isFullPath(sub):
-        return sub
-    if sub == "/":
-        return "http://%s" % (getDomain(parent))
-    if sub[:1] == "/":
-        baseUrl = getDomain(parent)
-    else:
-        baseUrl = getBaseUrl(parent)
-    relPath = getRelPath(sub)
-    return "http://%s/%s" % (baseUrl,relPath)
+data = urllib.parse.urlencode({'wd':'花朵'})
+print(data)
+url = 'http://www.baidu.com/s?' + data
+response = urllib.request.urlopen(url)
+HTML = response.read().decode('utf8')
+print(HTML)
